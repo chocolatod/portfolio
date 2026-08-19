@@ -6,3 +6,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = { Methods = ["GET"] }
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
