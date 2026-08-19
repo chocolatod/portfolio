@@ -206,10 +206,11 @@ function initScrollAnimations() {
 
                 // Animate skill bars
                 if (entry.target.classList.contains('skill-category')) {
-                    const fill = entry.target.querySelector('.skill-fill');
-                    if (fill && !fill.classList.contains('animated')) {
-                        fill.classList.add('animated');
-                    }
+                    entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+                        if (!fill.classList.contains('animated')) {
+                            fill.classList.add('animated');
+                        }
+                    });
                 }
 
                 // Animate stat numbers
