@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hilmy Rifaldi | Cyber Security Professional</title>
+    <meta name="description" content="Portfolio of Hilmy Rifaldi - Sr. Cyber Security Analyst specializing in Cloud Security, Application Security, and Vulnerability Management">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Matrix Background -->
+    <canvas id="matrix-bg"></canvas>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Scanline Overlay -->
+    <div class="scanline"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-shield">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <div class="preloader-text">Initializing Security Protocols...</div>
+            <div class="preloader-bar">
+                <div class="preloader-bar-fill" id="preloader-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <i class="fas fa-shield-halved"></i>
+                    <span>The Guardian</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#certifications" class="nav-link">Certs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                <span>Available for Opportunities</span>
+            </div>
+            <h1 class="hero-name">
+                <span class="greeting">Hello, I'm</span>
+                <span class="name">Hilmy <span class="highlight">Rifaldi</span></span>
+            </h1>
+            <div class="hero-title">
+                <span class="typing-text" id="typing-text"></span>
+                <span class="cursor">|</span>
+            </div>
+            <p class="hero-desc">
+                IT Security Professional with 3+ years of experience designing, implementing,
+                and managing cybersecurity solutions across banking and fintech industries.
+                Specialized in Cloud Security, Application Security, Identity Security,
+                and Vulnerability Management with hands-on experience in threat analysis,
+                incident response, and security operations.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="3">0</span>+
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="3">0</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-label">Roles Held</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" data-count="2">0</span>
+                    <span class="stat-label">Industries</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i>
+                    Contact Me
+                </a>
+                    <a href="CV_HilmyRifaldi.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+            </div>
+            <div class="hero-tech-stack">
+                <span class="tech-label">Tech Stack:</span>
+                <span class="tech-item">Cloud Security</span>
+                <span class="tech-item">WAF</span>
+                <span class="tech-item">PAM</span>
+                <span class="tech-item">AD/LDAP</span>
+                <span class="tech-item">VAPT</span>
+                <span class="tech-item">SAST</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="shield-container">
+                <div class="shield">
+                    <i class="fas fa-shield-halved"></i>
+                </div>
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+                <div class="floating-icons">
+                    <i class="fas fa-cloud float-icon icon-1"></i>
+                    <i class="fas fa-lock float-icon icon-2"></i>
+                    <i class="fas fa-shield-virus float-icon icon-3"></i>
+                    <i class="fas fa-network-wired float-icon icon-4"></i>
+                    <i class="fas fa-key float-icon icon-5"></i>
+                    <i class="fas fa-database float-icon icon-6"></i>
+                    <i class="fas fa-bug float-icon icon-7"></i>
+                    <i class="fas fa-terminal float-icon icon-8"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;about&gt;</span>
+                <h2 class="section-title">Who <span class="highlight">I Am</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title">about.sh</span>
+                            <span class="terminal-status">●</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="terminal-line">$ cat profile.txt</p>
+                            <p class="terminal-line output">
+                                IT Security Professional with 3+ years of experience designing,
+                                implementing, and managing cybersecurity solutions across banking
+                                and fintech industries.
+                            </p>
+                            <p class="terminal-line"></p>
+                            <p class="terminal-line">$ echo $EXPERTISE</p>
+                            <p class="terminal-line output">Cloud Security | App Security | VAPT | Identity Security | Vulnerability Management</p>
+                            <p class="terminal-line"></p>
+                            <p class="terminal-line">$ echo $CURRENT_ROLE</p>
+                            <p class="terminal-line output">Sr. Cyber Security Analyst @ PT. Akulaku Finance Indonesia</p>
+                            <p class="terminal-line"></p>
+                            <p class="terminal-line">$ cat personal_info.txt</p>
+                            <p class="terminal-line output">Name: Hilmy Rifaldi</p>
+                            <p class="terminal-line output">DOB: 03/12/1998 | Kuningan</p>
+                            <p class="terminal-line output">Nationality: Indonesian</p>
+                            <p class="terminal-line output">Location: Kota Depok, Indonesia</p>
+                            <p class="terminal-line"></p>
+                            <p class="terminal-line">$ echo $EDUCATION</p>
+                            <p class="terminal-line output">Bachelor Degree - Telkom University, Bandung (GPA: 3.24)</p>
+                            <p class="terminal-line"></p>
+                            <p class="terminal-line">$ echo $MISSION</p>
+                            <p class="terminal-line output">Protect critical business assets, reduce cyber risk, and drive continuous security improvement.</p>
+                        </div>
+                    </div>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kota Depok, Indonesia</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Sr. Cyber Security Analyst</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Telkom University (GPA 3.24)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-language"></i>
+                            <span>Indonesian, English</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="code-block">
+                        <pre><code><span class="keyword">class</span> <span class="class-name">HilmyRifaldi</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        self.name = <span class="string">"Hilmy Rifaldi"</span>
+        self.role = <span class="string">"Sr. Cyber Security Analyst"</span>
+        self.location = <span class="string">"Kota Depok, ID"</span>
+        self.email = <span class="string">"hilmyrifaldi123"</span>
+        self.dob = <span class="string">"03/12/1998"</span>
+        self.nationality = <span class="string">"Indonesian"</span>
+        self.education = <span class="string">"Telkom Univ."</span>
+        self.gpa = <span class="number">3.24</span>
+        self.certifications = [<span class="string">"CEHv13"</span>, <span class="string">"F5 NetOps"</span>, <span class="string">"DevNet"</span>]
+        self.years_exp = <span class="number">3</span>
+
+    <span class="keyword">def</span> <span class="function">expertise</span>(self):
+        <span class="keyword">return</span> [
+            <span class="string">"Cloud Security"</span>,
+            <span class="string">"Application Security"</span>,
+            <span class="string">"Vulnerability Mgmt"</span>,
+            <span class="string">"Identity & Access Mgmt"</span>,
+            <span class="string">"Security Operations"</span>,
+            <span class="string">"Incident Response"</span>
+        ]
+
+    <span class="keyword">def</span> <span class="function">mission</span>(self):
+        <span class="keyword">return</span> (<span class="string">"Protecting critical business assets"</span>
+                <span class="string">"through cybersecurity excellence"</span>)</code></pre>
+                    </div>
+                    <div class="about-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Committed to protecting critical business assets, reducing cyber risk, and driving continuous security improvement through industry best practices."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;skills&gt;</span>
+                <h2 class="section-title">Technical <span class="highlight">Arsenal</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> Security Domains</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-level="95">
+                            <div class="skill-info">
+                                <span>Cloud Security</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill level-95" style="--width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item" data-level="90">
+                            <div class="skill-info">
+                                <span>Vulnerability Management</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill level-90" style="--width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item" data-level="88">
+                            <div class="skill-info">
+                                <span>Application Security (SAST)</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill level-88" style="--width: 88%"></div></div>
+                        </div>
+                        <div class="skill-item" data-level="92">
+                            <div class="skill-info">
+                                <span>Identity & Access Management</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill level-92" style="--width: 92%"></div></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <div class="skill-info">
+                                <span>Security Monitoring & SOC</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill level-85" style="--width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <div class="skill-info">
+                                <span>Incident Response</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill level-80" style="--width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fas fa-cloud"></i> Google Cloud</span>
+                        <span class="skill-tag"><i class="fas fa-cloud"></i> Huawei Cloud</span>
+                        <span class="skill-tag"><i class="fas fa-fire"></i> Cloud WAF</span>
+                        <span class="skill-tag"><i class="fas fa-user-shield"></i> PAM Solutions</span>
+                        <span class="skill-tag"><i class="fas fa-server"></i> Active Directory</span>
+                        <span class="skill-tag"><i class="fas fa-folder-open"></i> LDAP</span>
+                        <span class="skill-tag"><i class="fas fa-balance-scale"></i> F5 Load Balancer</span>
+                        <span class="skill-tag"><i class="fas fa-code"></i> REST API</span>
+                        <span class="skill-tag"><i class="fas fa-shield-virus"></i> CIS Benchmark</span>
+                        <span class="skill-tag"><i class="fas fa-bug"></i> VAPT</span>
+                        <span class="skill-tag"><i class="fas fa-search"></i> SAST Tools</span>
+                        <span class="skill-tag"><i class="fas fa-chart-line"></i> Security Dashboards</span>
+                        <span class="skill-tag"><i class="fas fa-terminal"></i> Linux/Unix</span>
+                        <span class="skill-tag"><i class="fas fa-network-wired"></i> Networking (OSPF/EIGRP)</span>
+                        <span class="skill-tag"><i class="fas fa-project-diagram"></i> ITIL Framework</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Core Competencies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fas fa-project-diagram"></i> Project Management</span>
+                        <span class="skill-tag"><i class="fas fa-users"></i> Leadership</span>
+                        <span class="skill-tag"><i class="fas fa-fire-extinguisher"></i> Incident Response</span>
+                        <span class="skill-tag"><i class="fas fa-file-alt"></i> Security Reporting</span>
+                        <span class="skill-tag"><i class="fas fa-chalkboard-teacher"></i> Security Awareness</span>
+                        <span class="skill-tag"><i class="fas fa-clipboard-check"></i> Risk Assessment</span>
+                        <span class="skill-tag"><i class="fas fa-virus"></i> Threat Analysis</span>
+                        <span class="skill-tag"><i class="fas fa-file-contract"></i> SSDLC Integration</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-pie"></i> Skill Proficiency</h3>
+                    <canvas id="skillsRadar"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;experience&gt;</span>
+                <h2 class="section-title">Work <span class="highlight">History</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item current">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar"></i>
+                                April 2026 — Present
+                            </div>
+                            <span class="timeline-badge current">Current</span>
+                        </div>
+                        <h3>Sr. Cyber Security Analyst</h3>
+                        <h4>PT. Akulaku Finance Indonesia, Jakarta</h4>
+                        <ul class="timeline-list">
+                            <li>Implemented and managed Cloud Security controls to protect cloud workloads, ensuring compliance with organizational security policies</li>
+                            <li>Conducted cloud security configuration assessments to ensure compliance with CIS Benchmark best practices</li>
+                            <li>Configured and managed Cloud Web Application Firewalls (WAF) to enhance infrastructure resilience</li>
+                            <li>Conducted Static Application Security Testing (SAST) to identify and remediate vulnerabilities during SSDLC</li>
+                            <li>Performed Vulnerability Assessment and Penetration Testing (VAPT) for internal applications, analyzed findings, and prioritized remediation</li>
+                            <li>Monitored cloud environments for security events, suspicious activities, and compliance violations</li>
+                            <li>Developed dashboards and security reports to improve visibility into security events and operational metrics</li>
+                            <li>Delivered Security Awareness sessions on cyber security risks, phishing, password security, and best practices</li>
+                            <li>Prepared monthly Security Posture Reports summarizing risks, vulnerabilities, and remediation progress</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Cloud Security</span>
+                            <span>VAPT</span>
+                            <span>SAST</span>
+                            <span>WAF</span>
+                            <span>CIS Benchmark</span>
+                            <span>SOC</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar"></i>
+                                Feb 2023 — March 2026
+                            </div>
+                        </div>
+                        <h3>IT Security Development Specialist</h3>
+                        <h4>PT. Bank Mega, Jakarta</h4>
+                        <ul class="timeline-list">
+                            <li>Deployed, configured, and managed PAM solutions with AD/LDAP integration</li>
+                            <li>Implemented privileged session monitoring, audit trails, and alerts for anomalous activities</li>
+                            <li>Administered Active Directory and LDAP environments including OUs, Group Policies, and replication</li>
+                            <li>Created and managed REST API from AD/LDAP for application integration</li>
+                            <li>Configured and managed firewalls with IPS, content filtering, and VPN</li>
+                            <li>Managed F5 load balancing solutions for optimal application performance</li>
+                            <li>Developed cloud security policies for Google Cloud & Huawei Cloud</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>PAM</span>
+                            <span>AD/LDAP</span>
+                            <span>Firewall</span>
+                            <span>F5 Load Balancer</span>
+                            <span>Cloud Security</span>
+                            <span>REST API</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar"></i>
+                                Aug 2022 — Jan 2023
+                            </div>
+                        </div>
+                        <h3>IT Development Program</h3>
+                        <h4>PT. Bank Mega, Jakarta</h4>
+                        <ul class="timeline-list">
+                            <li>Learned IT Network fundamentals (routing tables, static/dynamic routing: RIP, OSPF, EIGRP)</li>
+                            <li>Studied IT Security fundamentals (access control, cryptography, BCP/DRP, OS security)</li>
+                            <li>Created virtualization environments for web application development (Apache/NGINX)</li>
+                            <li>Conducted Risk Assessment & Risk Analysis from vulnerability assessment data</li>
+                            <li>Studied ITIL framework for IT service management</li>
+                            <li>Learned DevOps practices for automated deployment and infrastructure provisioning</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span>Networking</span>
+                            <span>IT Security</span>
+                            <span>Virtualization</span>
+                            <span>DevOps</span>
+                            <span>ITIL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar"></i>
+                                Apr 2022 — Jul 2022
+                            </div>
+                        </div>
+                        <h3>Customer Service</h3>
+                        <h4>PT. Asuransi Jiwa SeaInsure, Jakarta</h4>
+                        <ul class="timeline-list">
+                            <li>Responded to customer inquiries via phone, email, and chat in a friendly manner</li>
+                            <li>Identified customer needs and provided accurate solutions</li>
+                            <li>Analyzed data reports from inbound calls, web forms, and email to improve services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-date">
+                                <i class="fas fa-calendar"></i>
+                                Apr 2021 — Apr 2022
+                            </div>
+                        </div>
+                        <h3>Customer Service</h3>
+                        <h4>PT. Shopee International Indonesia, Jakarta</h4>
+                        <ul class="timeline-list">
+                            <li>Handled customer inquiries from sellers and buyers through calls</li>
+                            <li>Managed and resolved customer issues and escalations</li>
+                            <li>Analyzed customer experience reports and conducted root cause analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;certifications&gt;</span>
+                <h2 class="section-title">Professional <span class="highlight">Certs</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-user-secret"></i></div>
+                    <h3>CEHv13</h3>
+                    <p>Certified Ethical Hacker v13</p>
+                    <span class="cert-issuer">EC-Council</span>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>F5 Accredited NetOps</h3>
+                    <p>F5 Networks Certification</p>
+                    <span class="cert-issuer">F5</span>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>DevNet Associate</h3>
+                    <p>Cisco DevNet Associate</p>
+                    <span class="cert-issuer">Cisco</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">&lt;contact&gt;</span>
+                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Secure The Future Together</h3>
+                    <p>Whether you need a security consultation, want to discuss cybersecurity solutions, or have collaboration opportunities, feel free to reach out.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span>Email</span>
+                                <a href="mailto:hilmyrifaldi123@gmail.com">hilmyrifaldi123@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span>Phone</span>
+                                <a href="tel:+6281213540231">+62 812-1354-0231</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div> 
+				<span>Location</span>
+                                <a href="https://maps.google.com/?q=Depok,West+Java,Indonesia">Kota Depok, Indonesia</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <span>LinkedIn</span>
+                                <a href="#">linkedin.com/in/hilmyrifaldi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="mailto:hilmyrifaldi123@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form" name="contact" netlify netlify-honeypot="bot-field">
+                        <p class="hidden" style="display:none">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Security Consultation" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-shield-halved"></i>
+                <span>The Guardian</span>
+                </div>
+                    <p class="footer-text">Fortifying digital assets. Securing the future.</p>
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#certifications">Certs</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hilmy Rifaldi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
