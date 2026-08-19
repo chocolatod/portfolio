@@ -346,7 +346,7 @@ function initSkillsChart() {
                     beginAtZero: true,
                     max: 100,
                     ticks: {
-                        stepSize: 20,
+                        display: false,
                         color: '#8b949e',
                         backdropColor: 'transparent',
                         font: { size: 10 }
@@ -367,17 +367,8 @@ function initSkillsChart() {
 }
 
 // ==================== CONTACT FORM ====================
-// Netlify handles form submission natively via the 'netlify' attribute.
-// No JS interceptor needed — form submits directly to Netlify.
-function initContactForm() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-        // Let Netlify handle the submission natively
-        // The form has netlify attribute, so no preventDefault
-    });
-}
+// Formspree handles form submission — no JS interceptor needed.
+function initContactForm() {}
 
 // ==================== TILT EFFECT ON CARDS ====================
 function initTiltEffect() {
