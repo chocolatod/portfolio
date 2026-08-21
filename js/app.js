@@ -59,9 +59,14 @@ class MatrixBackground {
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.font = this.fontSize + 'px monospace';
 
+        const cs = getComputedStyle(document.documentElement);
+        const primary = cs.getPropertyValue('--primary').trim();
+        const [r, g, b] = primary.replace(/[^\d,]/g, '').split(',').map(Number);
+        const alphaBase = 0.3 + Math.random() * 0.7;
+
         for (let i = 0; i < this.drops.length; i++) {
             const text = this.characters.charAt(Math.floor(Math.random() * this.characters.length));
-            this.ctx.fillStyle = Math.random() > 0.98 ? '#ffffff' : `rgba(0, 255, 136, ${0.3 + Math.random() * 0.7})`;
+            this.ctx.fillStyle = Math.random() > 0.98 ? '#ffffff' : `rgba(${r}, ${g}, ${b}, ${alphaBase})`;
             this.ctx.fillText(text, i * this.fontSize, this.drops[i] * this.fontSize);
 
             if (this.drops[i] * this.fontSize > this.canvas.height && Math.random() > 0.975) {
@@ -139,7 +144,9 @@ class ParticleSystem {
 
             this.ctx.beginPath();
             this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            this.ctx.fillStyle = `rgba(0, 255, 136, ${p.opacity})`;
+            const cs2 = getComputedStyle(document.documentElement);
+            const primary2 = cs2.getPropertyValue('--primary').trim();
+            this.ctx.fillStyle = `rgba(${primary2}, ${p.opacity})`;
             this.ctx.fill();
 
             for (let j = i + 1; j < this.particles.length; j++) {
@@ -151,7 +158,7 @@ class ParticleSystem {
                     this.ctx.beginPath();
                     this.ctx.moveTo(p.x, p.y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                    this.ctx.strokeStyle = `rgba(0, 255, 136, ${0.15 * (1 - dist / 150)})`;
+                    this.ctx.strokeStyle = `rgba(${primary2}, ${0.15 * (1 - dist / 150)})`;
                     this.ctx.stroke();
                 }
             }
@@ -322,6 +329,11 @@ function initSkillsChart() {
     const ctx = document.getElementById('skillsRadar');
     if (!ctx) return;
 
+    const cs = getComputedStyle(document.documentElement);
+    const primary = cs.getPropertyValue('--primary').trim();
+    const [pr, pg, pb] = primary.replace(/[^\d,]/g, '').split(',').map(Number);
+    const bgColor = `rgba(${pr}, ${pg}, ${pb}, 0.15)`;
+
     new Chart(ctx, {
         type: 'radar',
         data: {
@@ -329,13 +341,13 @@ function initSkillsChart() {
             datasets: [{
                 label: 'Proficiency',
                 data: [95, 90, 88, 92, 85, 80],
-                backgroundColor: 'rgba(0, 255, 136, 0.15)',
-                borderColor: '#00ff88',
+                backgroundColor: bgColor,
+                borderColor: primary,
                 borderWidth: 2,
-                pointBackgroundColor: '#00ff88',
-                pointBorderColor: '#00ff88',
+                pointBackgroundColor: primary,
+                pointBorderColor: primary,
                 pointHoverBackgroundColor: '#ffffff',
-                pointHoverBorderColor: '#00ff88'
+                pointHoverBorderColor: primary
             }]
         },
         options: {
@@ -428,4 +440,3 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initTiltEffect();
     initRevealAnimations();
-});
