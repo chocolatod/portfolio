@@ -8,6 +8,7 @@ class Preloader {
     }
 
     init() {
+        if (!this.preloader || !this.bar) return;
         this.simulateLoading();
     }
 
@@ -24,6 +25,7 @@ class Preloader {
     }
 
     hide() {
+        if (!this.preloader) return;
         this.preloader.classList.add('hidden');
         document.body.style.overflow = 'auto';
     }
@@ -33,6 +35,7 @@ class Preloader {
 class MatrixBackground {
     constructor() {
         this.canvas = document.getElementById('matrix-bg');
+        if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.characters = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF{}[]<>/\\|';
         this.fontSize = 14;
@@ -82,6 +85,7 @@ class MatrixBackground {
 class ParticleSystem {
     constructor() {
         this.canvas = document.getElementById('particles');
+        if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
         this.mouse = { x: null, y: null };
@@ -422,6 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hide body overflow during loading
     document.body.style.overflow = 'hidden';
 
+    try {
     new Preloader();
     new MatrixBackground();
     new ParticleSystem();
@@ -440,3 +445,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initTiltEffect();
     initRevealAnimations();
+    } catch (error) {
+        console.error('Page initialization failed:', error);
+        document.getElementById('preloader')?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+});
