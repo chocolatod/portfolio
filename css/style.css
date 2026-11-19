@@ -467,6 +467,16 @@ body {
     justify-content: center;
 }
 
+.form-status {
+    min-height: 1.4em;
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+}
+
+.form-status.is-success { color: #65e6a2; }
+.form-status.is-error { color: #ff8a8a; }
+.form-status.is-loading { color: #b6c2d9; }
+
 .hero-tech-stack {
     display: flex;
     align-items: center;
@@ -1585,4 +1595,3 @@ body {
         font-size: 11px;
     }
 }
-

@@ -383,8 +383,111 @@ function initSkillsChart() {
 }
 
 // ==================== CONTACT FORM ====================
-// Formspree handles form submission — no JS interceptor needed.
-function initContactForm() {}
+const ContactDelivery = (() => {
+    const mode = (window.EMAIL_PROVIDER || 'auto').toLowerCase();
+    const emailJsConfig = window.EMAILJS_CONFIG || {};
+
+    function validate(payload) {
+        return payload.name.length > 0 && payload.email.includes('@') &&
+            payload.message.length > 0 && payload.message.length <= 10000;
+    }
+
+    async function withTimeout(promise) {
+        let timer;
+        try {
+            return await Promise.race([promise, new Promise((_, reject) => {
+                timer = setTimeout(() => reject(new Error('timeout')), 10000);
+            })]);
+        } finally { clearTimeout(timer); }
+    }
+
+    async function sendEmailJs(payload) {
+        if (!emailJsConfig.serviceId || !emailJsConfig.templateId || !emailJsConfig.publicKey) {
+            throw new Error('emailjs_not_configured');
+        }
+        const response = await withTimeout(fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                service_id: emailJsConfig.serviceId,
+                template_id: emailJsConfig.templateId,
+                user_id: emailJsConfig.publicKey,
+                template_params: payload
+            })
+        }));
+        if (!response.ok) throw new Error(`emailjs_http_${response.status}`);
+    }
+
+    async function sendFallback(payload) {
+        const response = await withTimeout(fetch('/.netlify/functions/send-contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }));
+        if (!response.ok) throw new Error(`fallback_http_${response.status}`);
+    }
+
+    return {
+        async send(payload) {
+            if (!validate(payload)) throw new Error('invalid_payload');
+            if (mode === 'backend') {
+                await sendFallback(payload);
+                return 'backend';
+            }
+            try {
+                await sendEmailJs(payload);
+                return 'emailjs';
+            } catch (error) {
+                try {
+                    await sendFallback(payload);
+                    return 'fallback';
+                } catch (fallbackError) {
+                    throw new Error(`delivery_failed:${fallbackError.message}`);
+                }
+            }
+        }
+    };
+})();
+
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const status = document.getElementById('form-status');
+    const submit = form.querySelector('button[type="submit"]');
+    const label = submit.querySelector('.submit-label');
+    const loading = submit.querySelector('.submit-loading');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (submit.disabled) return;
+
+        const payload = Object.fromEntries(new FormData(form));
+        submit.disabled = true;
+        label.hidden = true;
+        loading.hidden = false;
+        status.textContent = 'Sending message...';
+        status.className = 'form-status is-loading';
+
+        try {
+            const provider = await ContactDelivery.send(payload);
+            console.info(`[contact] ${provider} success`);
+            status.textContent = 'Message sent successfully.';
+            status.className = 'form-status is-success';
+            form.reset();
+        } catch (error) {
+            const type = error.message === 'invalid_payload' ? 'validation' : error.message === 'timeout' ? 'timeout' : 'delivery';
+            console.warn(`[contact] delivery failed (${type})`);
+            status.textContent = type === 'validation'
+                ? 'Please check your message details.'
+                : 'Unable to send your message. Please try again.';
+            status.className = 'form-status is-error';
+        } finally {
+            submit.disabled = false;
+            label.hidden = false;
+            loading.hidden = true;
+        }
+    });
+}
 
 // ==================== TILT EFFECT ON CARDS ====================
 function initTiltEffect() {

@@ -570,9 +570,11 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
                         </div>
+                        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-paper-plane"></i>
-                            Send Message
+                            <span class="submit-label">Send Message</span>
+                            <span class="submit-loading" hidden>Sending...</span>
                         </button>
                     </form>
                 </div>
@@ -609,6 +611,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="js/emailjs-config.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
