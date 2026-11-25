@@ -176,9 +176,8 @@ body {
 
 /* ==================== CONTAINER ==================== */
 .container {
-    max-width: 1200px;
+    width: min(1200px, 100% - 40px);
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 /* ==================== NAVIGATION ==================== */
@@ -203,9 +202,8 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    width: min(1200px, 100% - 40px);
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -236,6 +234,7 @@ body {
 
 .nav-menu {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     gap: 2px;
 }
@@ -305,9 +304,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 40px 60px;
-    gap: 40px;
-    max-width: 1200px;
+    padding: 100px clamp(16px, 4vw, 40px) 60px;
+    gap: clamp(16px, 4vw, 40px);
+    width: min(1200px, 100% - 40px);
     margin: 0 auto;
     position: relative;
 }
@@ -1355,7 +1354,7 @@ body {
 .footer-links {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
@@ -1479,7 +1478,7 @@ body {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
+        width: min(280px, calc(100vw - 40px));
         height: 100vh;
         background: var(--bg-card);
         border-left: 1px solid var(--border);
